@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Baidu
+Comment=Baidu
+Exec=/usr/bin/python3 /home/denis/ui/file.py
+Terminal=true
+Type=Application
+Icon=utilities-terminal
+Categories=Utility;
