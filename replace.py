@@ -7,7 +7,7 @@ with open(filename, 'r', encoding='utf-8') as file:
 
 # Выполнение замены
 pattern = r'\n'
-replacement = '"\\nsleep 3 && wget --retry-on-http-error=code --retry-connrefused -t 5 --user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36\" --content-disposition \"https://fanyi.baidu.com/gettts?spd=3&source=web&lan=ru&text='
+replacement = '"\\nsleep 3 && wget --retry-on-http-error=503 --waitretry=10 --retry-connrefused -t 8 --user-agent=\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36\" --content-disposition \"https://fanyi.baidu.com/gettts?spd=3&source=web&lan=ru&text='
 modified_content = re.sub(pattern, replacement, content)
 
 # Запись измененного содержимого обратно в файл
