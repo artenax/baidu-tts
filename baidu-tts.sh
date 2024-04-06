@@ -19,12 +19,10 @@ sed -i 's/  / /g' input.txt # удаляем лишние пробелы
 sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
 sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
 echo "Убедись, что нет строк длиннее 413 символов"
-LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
+mousepad input.txt
+#LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 sed -i '1s/^/SCRIPT\n/' input.txt # пишем SCRIPT в начало файла
 echo "END" >> input.txt # пишем END в конец файла
-#echo "Пожалуйста, отредактируй команды автозамены в Adie, потому что в консольном sed это слишком сложно"
-#echo "Прокрути колёсико вверх над полем искать в"
-#LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 /usr/bin/python3 /home/denis/ui/replace.py
 /home/denis/ui/apps/rfl
 #sed -i '1d' input.txt # удаляем первую строку в качестве эксперимента rfl утилита используется для этого
@@ -32,7 +30,6 @@ echo "END" >> input.txt # пишем END в конец файла
 /home/denis/ui/apps/rll
 #sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
 #sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
-#LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 mv input.txt input.sh
 chmod +x input.sh
 echo "Проверяем финальный код"
@@ -55,7 +52,9 @@ rm -f audio-fix.mp3
 /usr/bin/mkvextract tracks audio-fix.mka 0:audio.mp3
 rm -f audio-fix.mka
 /usr/bin/mediainfo audio.mp3
-cp -f /tmp/audio/audio.mp3 '/home/denis/Рабочий стол/audio.mp3'
+/usr/bin/ffmpeg -hide_banner -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.7:stop_silence=0.7 -sample_fmt s16 -compression_level 1 -y audio.flac
+/usr/bin/mediainfo audio.flac
+cp -f /tmp/audio/audio.flac '/home/denis/Рабочий стол/audio.flac'
 cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
 chmod -x '/home/denis/Рабочий стол/input.txt'
 cd /home/denis
