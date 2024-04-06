@@ -6,7 +6,7 @@ import subprocess
 class FileChooserWindow(Gtk.Window):
 
     def __init__(self):
-        Gtk.Window.__init__(self, title="File Chooser Example")
+        Gtk.Window.__init__(self, title="File Chooser")
 
         self.set_border_width(10)
 
