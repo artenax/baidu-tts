@@ -9,12 +9,16 @@ sed -i 's|"|“|g' input.txt
 sed -i 's|–|—|g' input.txt
 sed -i 's|‒|—|g' input.txt
 #sed -i 's/.../…/g' input.txt # плохая замена используй вручную
+echo "Частично сокращаем длинные строки"
+/usr/bin/python3 /home/denis/ui/cut.py
+/usr/bin/python3 /home/denis/ui/cut.py
 sed -i 's/  / /g' input.txt # удаляем лишние пробелы
 sed -i 's/  / /g' input.txt # удаляем лишние пробелы
 sed -i 's/  / /g' input.txt # удаляем лишние пробелы
-sed -i 's/\.\ /.\n/g' input.txt # вставляем перенос строки после каждого предложения для сокращения длины строки
+#sed -i 's/\.\ /.\n/g' input.txt # вставляем перенос строки после каждого предложения для сокращения длины строки
 sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
 sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
+echo "Убедись, что нет строк длиннее 413 символов"
 LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 sed -i '1s/^/SCRIPT\n/' input.txt # пишем SCRIPT в начало файла
 echo "END" >> input.txt # пишем END в конец файла
