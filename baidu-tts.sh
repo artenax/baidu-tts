@@ -52,9 +52,9 @@ rm -f audio-fix.mp3
 /usr/bin/mkvextract tracks audio-fix.mka 0:audio.mp3
 rm -f audio-fix.mka
 /usr/bin/mediainfo audio.mp3
-/usr/bin/ffmpeg -hide_banner -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.7:stop_silence=0.7 -sample_fmt s16 -compression_level 1 -y audio.flac
-/usr/bin/mediainfo audio.flac
-cp -f /tmp/audio/audio.flac '/home/denis/Рабочий стол/audio.flac'
+ffmpeg -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.7:stop_silence=0.7 -acodec flac -sample_fmt s16 -compression_level 0 -y audio.mka
+/usr/bin/mediainfo audio.mka
+cp -f /tmp/audio/audio.mka '/home/denis/Рабочий стол/audio.mka'
 cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
 chmod -x '/home/denis/Рабочий стол/input.txt'
 cd /home/denis
