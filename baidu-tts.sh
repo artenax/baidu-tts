@@ -8,27 +8,40 @@ sed -i 's|'\''|`|g' input.txt
 sed -i 's|"|“|g' input.txt
 sed -i 's|–|—|g' input.txt
 sed -i 's|‒|—|g' input.txt
+#sed -i 's/.../…/g' input.txt # плохая замена используй вручную
+sed -i 's/  / /g' input.txt # удаляем лишние пробелы
+sed -i 's/  / /g' input.txt # удаляем лишние пробелы
+sed -i 's/  / /g' input.txt # удаляем лишние пробелы
+sed -i 's/\.\ /.\n/g' input.txt # вставляем перенос строки после каждого предложения для сокращения длины строки
+sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
+sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
 LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
-sed -i '1s/^/SCRIPT\n/' input.txt
-echo "END" >> input.txt
+sed -i '1s/^/SCRIPT\n/' input.txt # пишем SCRIPT в начало файла
+echo "END" >> input.txt # пишем END в конец файла
 #echo "Пожалуйста, отредактируй команды автозамены в Adie, потому что в консольном sed это слишком сложно"
 #echo "Прокрути колёсико вверх над полем искать в"
 #LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 /usr/bin/python3 /home/denis/ui/replace.py
-sed -i '1d' input.txt
-sed -i '$d' input.txt
-sed -i '$d' input.txt
+/home/denis/ui/apps/rfl
+#sed -i '1d' input.txt # удаляем первую строку в качестве эксперимента rfl утилита используется для этого
+/home/denis/ui/apps/rll
+/home/denis/ui/apps/rll
+#sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
+#sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
 #LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 mv input.txt input.sh
 chmod +x input.sh
+echo "Проверяем финальный код"
+LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.sh
 mkdir -p mp3
 cd mp3
 bash ../input.sh
-rename 'our $i; $i++; $_ = sprintf("%03d", $i)' *
+#rename 'our $i; $i++; $_ = sprintf("%04d", $i)' * # плохая неестественная сортировка
+/usr/bin/python3 /home/denis/ui/rename.py
 echo "СПИСОК АУДИО ФАЙЛОВ"
 ls
 cat * > ../audio.mp3
-#cat 001 002 003 004 005 006 007 008 009 010 011 012 > ../audio.mp3 2> /dev/null
+#cat tts.mp3 tts.mp3.1 tts.mp3.2 tts.mp3.3 tts.mp3.4 tts.mp3.5 tts.mp3.6 tts.mp3.7 tts.mp3.8 tts.mp3.9 tts.mp3.10 tts.mp3.11 tts.mp3.12 tts.mp3.13 tts.mp3.14 tts.mp3.15 tts.mp3.16 tts.mp3.17 tts.mp3.18 tts.mp3.19 tts.mp3.20 tts.mp3.21 tts.mp3.22 tts.mp3.23 > ../audio.mp3 2> /dev/null
 cd ..
 rm -rdf /tmp/audio/mp3
 /usr/bin/ffmpeg -i audio.mp3 -c:a copy -vn -sn -map_metadata -1 audio-fix.mp3
