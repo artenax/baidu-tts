@@ -39,8 +39,8 @@ cd mp3
 bash ../input.sh
 #rename 'our $i; $i++; $_ = sprintf("%04d", $i)' * # плохая неестественная сортировка
 /usr/bin/python3 /home/denis/ui/rename.py
-echo "СПИСОК АУДИО ФАЙЛОВ"
-ls
+#echo "СПИСОК АУДИО ФАЙЛОВ"
+#ls
 cat * > ../audio.mp3
 #cat tts.mp3 tts.mp3.1 tts.mp3.2 tts.mp3.3 tts.mp3.4 tts.mp3.5 tts.mp3.6 tts.mp3.7 tts.mp3.8 tts.mp3.9 tts.mp3.10 tts.mp3.11 tts.mp3.12 tts.mp3.13 tts.mp3.14 tts.mp3.15 tts.mp3.16 tts.mp3.17 tts.mp3.18 tts.mp3.19 tts.mp3.20 tts.mp3.21 tts.mp3.22 tts.mp3.23 > ../audio.mp3 2> /dev/null
 cd ..
@@ -58,6 +58,8 @@ cp -f /tmp/audio/audio.mka '/home/denis/Рабочий стол/audio.mka'
 cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
 chmod -x '/home/denis/Рабочий стол/input.txt'
 cd /home/denis
+ls /tmp/audio/mp3
+wc -l /tmp/audio/input.sh
+find /tmp/audio/mp3 -type f -size -10k -exec du -h {} + | sort -n -k1
 #rm -rdf /tmp/audio
-du /tmp/audio/mp3/*
 echo Done
