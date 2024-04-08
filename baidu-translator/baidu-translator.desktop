@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Translator
+Comment=Baidu Translator
+Exec=/usr/bin/python3 /home/denis/ui/baidu-translator.py
+Terminal=false
+Type=Application
+Icon=utilities-terminal
+Categories=Utility;
+NoDisplay=false
+Hidden=false
