@@ -2,7 +2,6 @@
 rm -rdf /tmp/audio
 mkdir -p /tmp/audio
 cp -f "$1" /tmp/audio/input.txt
-#cp -f '/media/denis/Data/Files/Архив/Audio books/Кот в мешке/01.txt' /tmp/audio/input.txt
 cd /tmp/audio
 sed -i 's|'\''|`|g' input.txt
 sed -i 's|"|“|g' input.txt
@@ -51,8 +50,8 @@ rm -f audio-fix.mka
 ffmpeg -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.6:stop_silence=0.6 -acodec flac -sample_fmt s16 -compression_level 0 -y audio.mka
 /usr/bin/mediainfo audio.mka
 cp -f /tmp/audio/audio.mka '/home/denis/Рабочий стол/audio.mka'
-cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
-chmod -x '/home/denis/Рабочий стол/input.txt'
+#cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
+#chmod -x '/home/denis/Рабочий стол/input.txt'
 cd /home/denis
 ls /tmp/audio/mp3
 wc -l /tmp/audio/input.sh
