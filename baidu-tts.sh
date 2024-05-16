@@ -20,16 +20,12 @@ sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые стро�
 sed -i ':a;N;$!ba;s/\n\n/\n/g' input.txt # удаляем пустые строки
 echo "Убедись, что нет строк длиннее 413 символов"
 mousepad input.txt
-#LD_LIBRARY_PATH=/home/denis/software/adie /home/denis/software/adie/adie input.txt
 sed -i '1s/^/SCRIPT\n/' input.txt # пишем SCRIPT в начало файла
 echo "END" >> input.txt # пишем END в конец файла
 /usr/bin/python3 /home/denis/ui/replace.py
-/home/denis/ui/apps/rfl
-#sed -i '1d' input.txt # удаляем первую строку в качестве эксперимента rfl утилита используется для этого
-/home/denis/ui/apps/rll
-/home/denis/ui/apps/rll
-#sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
-#sed -i '$d' input.txt # удаляем последнюю строку rll утилита используется для этого
+sed -i '1d' input.txt # удаляем первую строку
+sed -i '$d' input.txt # удаляем последнюю строку
+sed -i '$d' input.txt # удаляем последнюю строку
 mv input.txt input.sh
 chmod +x input.sh
 echo "Проверяем финальный код"
@@ -52,7 +48,7 @@ rm -f audio-fix.mp3
 /usr/bin/mkvextract tracks audio-fix.mka 0:audio.mp3
 rm -f audio-fix.mka
 /usr/bin/mediainfo audio.mp3
-ffmpeg -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.7:stop_silence=0.7 -acodec flac -sample_fmt s16 -compression_level 0 -y audio.mka
+ffmpeg -threads 1 -i audio.mp3 -threads 1 -af silenceremove=start_periods=1:stop_periods=-1:start_threshold=-40dB:stop_threshold=-40dB:start_silence=0.6:stop_silence=0.6 -acodec flac -sample_fmt s16 -compression_level 0 -y audio.mka
 /usr/bin/mediainfo audio.mka
 cp -f /tmp/audio/audio.mka '/home/denis/Рабочий стол/audio.mka'
 cp -f /tmp/audio/input.sh '/home/denis/Рабочий стол/input.txt'
@@ -61,5 +57,5 @@ cd /home/denis
 ls /tmp/audio/mp3
 wc -l /tmp/audio/input.sh
 find /tmp/audio/mp3 -type f -size -10k -exec du -h {} + | sort -n -k1
-#rm -rdf /tmp/audio
+rm -rdf /tmp/audio
 echo Done
