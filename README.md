@@ -21,6 +21,7 @@ python3 /home/denis/ui/file.py (можно создать .desktop ярлык с
 Убедитесь, что file.py содержит правильный путь к файлу baidu-tts.sh и во всех файлах правильные пути.   
 mousepad и adie - текстовые редакторы по вкусу. В них нужно убедиться, что нет строк длиннее 413 символов.   
 Установите зависимости: ffmpeg, mkvtoolnix, mediainfo, python3-gi, python3-regex.   
+Для упрощения запуска сделал [deb и rpm](https://github.com/artenax/baidu-tts/releases/tag/v1.1) пакеты.   
 
 baidu-tts.sh предназначен для преобразования txt книг в звук.   
 baidu-translator (ему нужен python3-tk) для озвучивания небольших текстов из окошка. Он запускается так: python3 /home/denis/ui/baidu-translator.py   
