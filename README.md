@@ -27,4 +27,4 @@ baidu-tts.sh предназначен для преобразования txt к
 baidu-translator (ему нужен python3-tk) для озвучивания небольших текстов из окошка. Он запускается так: python3 /home/denis/ui/baidu-translator.py   
 Ему нужны файлы cut.py, replace2.py и rename2.py. А также плеер vlc.   
 Убедитесь в правильности путей. У меня все лежит в /home/denis/ui   
-Для запуска baidu-translator также можно воспользоваться релизным бинарником.   
+Для запуска baidu-translator также можно воспользоваться [релизным бинарником](https://github.com/artenax/baidu-tts/releases/tag/v1.0).   
