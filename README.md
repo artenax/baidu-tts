@@ -29,4 +29,4 @@ baidu-translator (ему нужен python3-tk) для озвучивания н
 Убедитесь в правильности путей. У меня все лежит в /home/denis/ui   
 Для запуска baidu-translator также можно воспользоваться [релизным бинарником](https://github.com/artenax/baidu-tts/releases/tag/v1.0).   
 
-Replacing ru with en allows to use English. And specifying a different URL - a different service.
+Replacing ru with en allows you to use English. And specifying a different URL - a different service.
