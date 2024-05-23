@@ -28,3 +28,5 @@ baidu-translator (ему нужен python3-tk) для озвучивания н
 Ему нужны файлы cut.py, replace2.py и rename2.py. А также плеер vlc.   
 Убедитесь в правильности путей. У меня все лежит в /home/denis/ui   
 Для запуска baidu-translator также можно воспользоваться [релизным бинарником](https://github.com/artenax/baidu-tts/releases/tag/v1.0).   
+
+Replacing ru with en allows to use English. And specifying a different URL - a different service.
