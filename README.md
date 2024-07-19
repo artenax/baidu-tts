@@ -1,5 +1,9 @@
 # baidu-tts
 
+**Больше не работает. Baidu теперь требует регистрацию, чтобы насладиться аутентичным произношением, а за пределами Китая это очень сложно. Российские, а возможно и некитайские телефонные номера не принимаются. Вот, что бывает, когда вы полагаетесь на онлайн, особенно в таких авторитарных странах, как Китай. Это проект останется как пример кода. Но я не советую вам полагаться на онлайн, вы понимаете почему.**
+
+**Doesn't work anymore. Baidu now requires registration to enjoy authentic pronunciation, but outside of China it's very difficult. Russian and possibly non-Chinese phone numbers are not accepted. This is what happens when you rely on online, especially in authoritarian countries like China. This project will remain as a code example. But I don't advise you to rely on online, you can see why.**
+
 Текст разбивается автоматически по переносам строк.   
 Но длинные строки всё ещё нужно обрезать самому. Пока что замечено, что сервер принимает по крайней мере 413 символов в строке.   
 
